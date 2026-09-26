@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sorry Riyaaa! 🥺💖</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Sacramento&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffe6f0 0%, #ffccd5 50%, #fff0f5 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            touch-action: manipulation;
+        }
+        .script-font {
+            font-family: 'Sacramento', cursive;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(255, 182, 193, 0.5);
+            box-shadow: 0 15px 35px rgba(255, 105, 180, 0.2);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(3deg); }
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 105, 180, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(255, 20, 147, 0.7); }
+        }
+        .glow-btn {
+            animation: pulse-glow 2s infinite;
+        }
+        @keyframes heartBeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.3); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.3); }
+            70% { transform: scale(1); }
+        }
+        .heart-beat {
+            animation: heartBeat 1.5s infinite;
+        }
+        .page {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+            transform: translateY(15px);
+        }
+        .page.active {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .scratch-box {
+            background: linear-gradient(135deg, #ffb6c1, #ff69b4);
+            color: transparent;
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+            transition: all 0.5s ease;
+            cursor: pointer;
+            user-select: none;
+        }
+        .scratch-box.revealed {
+            background: #fff0f5;
+            color: #d63384;
+            text-shadow: none;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+        }
+        /* Hide scrollbars for clean mobile view */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center p-4 min-h-screen relative">
+
+    <!-- Floating Background Emojis -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0 opacity-40">
+        <div class="absolute top-10 left-6 text-3xl animate-bounce">💖</div>
+        <div class="absolute top-1/4 right-8 text-4xl floating">🧸</div>
+        <div class="absolute bottom-20 left-10 text-3xl floating" style="animation-delay: 1s;">🌸</div>
+        <div class="absolute bottom-10 right-12 text-3xl animate-pulse">✨</div>
+        <div class="absolute top-1/2 left-4 text-2xl floating" style="animation-delay: 2s;">🥺</div>
+        <div class="absolute top-12 right-1/3 text-3xl floating" style="animation-delay: 1.5s;">💌</div>
+    </div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div class="w-full max-w-md z-10 flex flex-col items-center justify-center min-h-[85vh]">
+
+        <!-- PAGE 1: Welcome -->
+        <div id="page-1" class="page active flex-col items-center text-center w-full p-6 glass-card rounded-3xl">
+            <div class="text-6xl mb-3 heart-beat">🥺</div>
+            <h1 class="text-3xl font-extrabold text-pink-600 mb-2">Hey Riyaaa...</h1>
+            <p class="text-gray-600 text-sm mb-6 leading-relaxed">Someone special made this little interactive world just to say sorry and make you smile again! 💌</p>
+            <button onclick="nextPage(2)" class="w-full py-3.5 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold rounded-2xl shadow-lg glow-btn text-base flex items-center justify-center gap-2">
+                <span>Tap Here to Open</span> <span>👉</span>
+            </button>
+        </div>
+
+        <!-- PAGE 2: The Apology -->
+        <div id="page-2" class="page flex-col items-center text-center w-full p-6 glass-card rounded-3xl">
+            <div class="text-5xl mb-3 floating">🙇‍♀️💭</div>
+            <h2 class="text-2xl font-bold text-pink-600 mb-2">I Am Truly Sorry</h2>
+            <p class="text-gray-600 text-sm mb-6 leading-relaxed">I never ever meant to upset you or hurt your feelings. You mean so much to me, Riyaaa, and seeing you sad breaks my heart into tiny pieces. 💔</p>
+            <div class="flex gap-3 w-full">
+                <button onclick="prevPage(1)" class="w-1/3 py-3 bg-gray-200 text-gray-700 font-semibold rounded-2xl text-sm">Back</button>
+                <button onclick="nextPage(3)" class="w-2/3 py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold rounded-2xl shadow-md text-sm">Next Page ➡️</button>
+            </div>
+        </div>
+
+        <!-- PAGE 3: Why You're Special -->
+        <div id="page-3" class="page flex-col items-center text-center w-full p-6 glass-card rounded-3xl">
+            <div class="text-5xl mb-3 floating">✨💖✨</div>
+            <h2 class="text-2xl font-bold text-pink-600 mb-2">Why You're The Best</h2>
+            <p class="text-gray-600 text-sm mb-6 leading-relaxed">Your smile lights up every room, your laugh is contagious, and your kind heart is rare. Life is simply much brighter with you in it, Riyaaa! 🌟</p>
+            <div class="flex gap-3 w-full">
+                <button onclick="prevPage(2)" class="w-1/3 py-3 bg-gray-200 text-gray-700 font-semibold rounded-2xl text-sm">Back</button>
+                <button onclick="nextPage(4)" class="w-2/3 py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold rounded-2xl shadow-md text-sm">Tap to Continue ✨</button>
+            </div>
+        </div>
+
+        <!-- PAGE 4: Interactive Memory Jar -->
+        <div id="page-4" class="page flex-col items-center text-center w-full p-6 glass-card rounded-3xl">
+            <div class="text-5xl mb-3 floating">🏺💌</div>
+            <h2 class="text-xl font-bold text-pink-600 mb-1">Our Memory Jar</h2>
+            <p class="text-gray-500 text-xs mb-4">Tap the note to reveal a sweet little memory!</p>
+            <div onclick="revealMemory()" id="memory-box" class="w-full bg-pink-50 border-2 border-dashed border-pink-300 rounded-2xl p-4 mb-5 cursor-pointer transition transform active:scale-95">
+                <p id="memory-text" class="text-sm font-medium text-pink-700">💌 Tap here to pull out a sweet memory!</p>
+            </div>
+            <div class="flex gap-3 w-full">
+                <button onclick="prevPage(3)" class="w-1/3 py-3 bg-gray-200 text-gray-700 font-semibold rounded-2xl text-sm">Back</button>
+                <button onclick="nextPage(5)" class="w-2/3 py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold rounded-2xl shadow-md text-sm">Next Page ➡️</button>
+            </div>
+        </div>
+
+        <!-- PAGE 5: Reasons I Value You -->
+        <div id="page-5" class="page flex-col items-center text-center w-full p-6 glass-card rounded-3xl">
+            <div class="text-5xl mb-3 heart-beat">🧸🌸</div>
+            <h2 class="text-2xl font-bold text-pink-600 mb-2">Things I Love About You</h2>
+            <div class="space-y-2 w-full mb-6 text-left">
+                <div class="bg-white/80 p-2.5 rounded-xl border border-pink-100 text-xs text-gray-700 flex items-center gap-2"><span>🌸</span> Your endless cute talks and silly jokes</div>
+                <div class="bg-white/80 p-2.5 rounded-xl border border-pink-100 text-xs text-gray-700 flex items-center gap-2"><span>🧸</span> How deeply you care for people</div>
+                <div class="bg-white/80 p-2.5 rounded-xl border border-pink-100 text-xs text-gray-700 flex items-center gap-2"><span>✨</span> The way you stay strong through everything</div>
+            </div>
+            <div class="flex gap-3 w-full">
+                <button onclick="prevPage(4)" class="w-1/3 py-3 bg-gray-200 text-gray-700 font-semibold rounded-2xl text-sm">Back</button>
+                <button onclick="nextPage(6)" class="w-2/3 py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold rounded-2xl shadow-md text-sm">Keep Going 💕</button>
+            </div>
+        </div>
+
+        <!-- PAGE 6: Mystery Gift Box -->
+        <div id="page-6" class="page flex-col items-center text-center w-full p-6 glass-card rounded-3xl">
+            <div class="text-5xl mb-3 floating" id="gift-icon">🎁</div>
+            <h2 class="text-xl font-bold text-pink-600 mb-1">Mystery Gift Box</h2>
+            <p class="text-gray-500 text-xs mb-4">Tap the box to open your surprise!</p>
+            <div onclick="openGift()" id="gift-box" class="w-full bg-pink-100 border-2 border-pink-300 rounded-2xl p-5 mb-5 cursor-pointer transition transform active:scale-95">
+                <p id="gift-text" class="text-sm font-bold text-pink-700">🎁 Tap to unwrap your special treat!</p>
+            </div>
+            <div class="flex gap-3 w-full">
+                <button onclick="prevPage(5)" class="w-1/3 py-3 bg-gray-200 text-gray-700 font-semibold rounded-2xl text-sm">Back</button>
+                <button onclick="nextPage(7)" class="w-2/3 py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold rounded-2xl shadow-md text-sm">Next Page ➡️</button>
+            </div>
+        </div>
+
+        <!-- PAGE 7: Scratch Card for a Smile -->
+        <div id="page-7" class="page flex-col items-center text-center w-full p-6 glass-card rounded-3xl">
+            <div class="text-5xl mb-3 floating">⭐🪄</div>
+            <h2 class="text-xl font-bold text-pink-600 mb-1">Magic Scratch Card</h2>
+            <p class="text-gray-500 text-xs mb-4">Tap to scratch and reveal your secret compliment!</p>
+            <div onclick="scratchCard()" id="scratch-el" class="scratch-box w-full rounded-2xl p-5 mb-5 font-bold text-sm shadow-inner">
+                ✨ Riyaaa, your smile is absolute magic and makes everything better! ✨
+            </div>
+            <div class="flex gap-3 w-full">
+                <button onclick="prevPage(6)" class="w-1/3 py-3 bg-gray-200 text-gray-700 font-semibold rounded-2xl text-sm">Back</button>
+                <button onclick="nextPage(8)" class="w-2/3 py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold rounded-2xl shadow-md text-sm">Next Page ➡️</button>
+            </div>
+        </div>
+
+        <!-- PAGE 8: Wheel of Forgiveness -->
+        <div id="page-8" class="page flex-col items-center text-center w-full p-6 glass-card rounded-3xl">
+            <div class="text-5xl mb-3 floating">🎡✨</div>
+            <h2 class="text-xl font-bold text-pink-600 mb-1">Forgiveness Prize Wheel</h2>
+            <p class="text-gray-500 text-xs mb-3">Spin to see what prize you unlock when you forgive me!</p>
+            <div class="w-full bg-pink-50 border border-pink-200 rounded-2xl p-4 mb-4">
+                <div id="wheel-result" class="text-base font-bold text-pink-700">🎡 Tap 'Spin Wheel' below!</div>
+            </div>
+            <button onclick="spinWheel()" id="spin-btn" class="w-full py-2.5 bg-pink-500 text-white font-semibold rounded-xl text-sm mb-3 shadow">Spin Wheel 🎲</button>
+            <div class="flex gap-3 w-full">
+                <button onclick="prevPage(7)" class="w-1/3 py-3 bg-gray-200 text-gray-700 font-semibold rounded-2xl text-sm">Back</button>
+                <button onclick="nextPage(9)" class="w-2/3 py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold rounded-2xl shadow-md text-sm">Next Page ➡️</button>
+            </div>
+        </div>
+
+        <!-- PAGE 9: Promise Wall -->
+        <div id="page-9" class="page flex-col items-center text-center w-full p-6 glass-card rounded-3xl">
+            <div class="text-5xl mb-3 floating">🤝💖</div>
+            <h2 class="text-2xl font-bold text-pink-600 mb-2">My Sincere Promise</h2>
+            <p class="text-gray-600 text-sm mb-6 leading-relaxed">I promise to listen more, never take your sweet presence for granted, and always make sure you feel valued, respected, and cherished. 🌸</p>
+            <div class="flex gap-3 w-full">
+                <button onclick="prevPage(8)" class="w-1/3 py-3 bg-gray-200 text-gray-700 font-semibold rounded-2xl text-sm">Back</button>
+                <button onclick="nextPage(10)" class="w-2/3 py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold rounded-2xl shadow-md text-sm">Almost There 💕</button>
+            </div>
+        </div>
+
+        <!-- PAGE 10: Official Certificate of Forgiveness -->
+        <div id="page-10" class="page flex-col items-center text-center w-full p-6 glass-card rounded-3xl border-4 border-pink-300">
+            <div class="text-4xl mb-1">📜✨</div>
+            <h3 class="text-xs uppercase tracking-widest text-pink-500 font-bold mb-1">Official Certificate</h3>
+            <h2 class="text-xl font-bold text-gray-800 mb-2">Certificate of Forgiveness</h2>
+            <p class="text-xs text-gray-600 mb-3">This prestigious certificate is proudly presented to the one and only</p>
+            <div class="text-xl font-extrabold text-pink-600 script-font mb-3">Riyaaa 👑💖</div>
+            <p class="text-xs text-gray-600 mb-5 leading-relaxed">For officially granting full pardon and bringing back her gorgeous smile! You are amazing.</p>
+            <div class="flex gap-3 w-full">
+                <button onclick="prevPage(9)" class="w-1/3 py-3 bg-gray-200 text-gray-700 font-semibold rounded-2xl text-sm">Back</button>
+                <button onclick="nextPage(11)" class="w-2/3 py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold rounded-2xl shadow-md text-sm">Final Step ➡️</button>
+            </div>
+        </div>
+
+        <!-- PAGE 11: Final Question -->
+        <div id="page-11" class="page flex-col items-center text-center w-full p-6 glass-card rounded-3xl">
+            <div class="text-6xl mb-3 heart-beat">🥺👉👈</div>
+            <h2 class="text-2xl font-bold text-pink-600 mb-2">Do You Forgive Me?</h2>
+            <p class="text-gray-600 text-sm mb-6">Can we please go back to laughing and being happy together, Riyaaa? 💕</p>
+            <div class="flex flex-col gap-3 w-full">
+                <button onclick="nextPage(12)" class="w-full py-3.5 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold rounded-2xl shadow-lg glow-btn text-base">
+                    YES, I Forgive You! 💖🥰
+                </button>
+                <button id="no-btn" onmouseover="moveNoButton()" ontouchstart="moveNoButton()" onclick="moveNoButton()" class="w-full py-3 bg-gray-200 text-gray-700 font-semibold rounded-2xl text-sm transition-all duration-200">
+                    No 🙈
+                </button>
+            </div>
+        </div>
+
+        <!-- PAGE 12: Celebration Page -->
+        <div id="page-12" class="page flex-col items-center text-center w-full p-6 glass-card rounded-3xl">
+            <div class="text-6xl mb-3 animate-bounce">🎉🥳💖</div>
+            <h1 class="text-3xl font-extrabold text-pink-600 mb-2">Yayyy! Thank You!</h1>
+            <p class="text-gray-600 text-sm mb-6 leading-relaxed">You just made me the happiest person ever, Riyaaa! Let's get ice cream soon! 🍦✨</p>
+            <button onclick="resetApp()" class="w-full py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-bold rounded-2xl shadow-md text-sm">
+                Start Over 🔄
+            </button>
+        </div>
+
+    </div>
+
+    <!-- JavaScript Controls -->
+    <script>
+        let currentPage = 1;
+        const totalPages = 12;
+
+        function showPage(pageNum) {
+            for (let i = 1; i <= totalPages; i++) {
+                const p = document.getElementById('page-' + i);
+                if (p) {
+                    p.classList.remove('active');
+                }
+            }
+            const target = document.getElementById('page-' + pageNum);
+            if (target) {
+                target.classList.add('active');
+                currentPage = pageNum;
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function nextPage(pageNum) {
+            showPage(pageNum);
+        }
+
+        function prevPage(pageNum) {
+            showPage(pageNum);
+        }
+
+        function resetApp() {
+            showPage(1);
+        }
+
+        // Memory Jar data
+        const memories = [
+            "💌 Remember all our endless funny chats and late-night talks?",
+            "💌 Remember when we laughed so hard our stomachs hurt?",
+            "💌 Remember how supportive you always are when things get tough?",
+            "💌 You bring so much positive energy into my life every single day!"
+        ];
+        function revealMemory() {
+            const rand = memories[Math.floor(Math.random() * memories.length)];
+            document.getElementById('memory-text').innerText = rand;
+            document.getElementById('memory-box').classList.add('bg-pink-100');
+        }
+
+        // Mystery Gift Box data
+        const gifts = [
+            "🧸 A giant digital hug and endless smiles!",
+            "🍫 A lifetime supply of your favorite chocolates!",
+            "🎬 A cozy Movie Date with your favorite snacks!",
+            "✨ A magical wish granted for anything you want!"
+        ];
+        function openGift() {
+            const randGift = gifts[Math.floor(Math.random() * gifts.length)];
+            document.getElementById('gift-text').innerText = randGift;
+            document.getElementById('gift-icon').innerText = "💖";
+            document.getElementById('gift-box').classList.remove('bg-pink-100');
+            document.getElementById('gift-box').classList.add('bg-pink-200');
+        }
+
+        // Scratch Card function
+        function scratchCard() {
+            const card = document.getElementById('scratch-el');
+            card.classList.add('revealed');
+        }
+
+        // Wheel of Forgiveness function
+        const prizes = [
+            "🎁 Prize: Unlimited Free Hugs!",
+            "🍫 Prize: Your Favorite Chocolate Treat!",
+            "🍿 Prize: Movie Date with Snacks!",
+            "👑 Prize: You Get to Rule the World Today!"
+        ];
+        function spinWheel() {
+            const res = document.getElementById('wheel-result');
+            res.innerText = "🎡 Spinning...";
+            setTimeout(() => {
+                const picked = prizes[Math.floor(Math.random() * prizes.length)];
+                res.innerText = picked;
+            }, 600);
+        }
+
+        // Playful 'No' button escape
+        function moveNoButton() {
+            const btn = document.getElementById('no-btn');
+            const x = (Math.random() - 0.5) * 160;
+            const y = (Math.random() - 0.5) * 60;
+            btn.style.transform = `translate(${x}px, ${y}px)`;
+        }
+    </script>
+</body>
+</html>
